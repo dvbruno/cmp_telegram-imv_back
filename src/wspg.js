@@ -1,13 +1,13 @@
 // EXTRAINDO DADOS
 
 const puppeteer = require('puppeteer'); //Chamando biblioteca
-const urlalvo = 'https://rj.olx.com.br/norte-do-estado-do-rio/imoveis/sobrado-04-quartos-um-suite-parque-joao-maria-929678008?lis=listing_1001';
+const urlalvo = 'https://rj.olx.com.br/norte-do-estado-do-rio/imoveis/casa-a-venda-3-quartos-2-suites-3-vagas-pontinha-araruama-rj-1117186960?lis=listing_1001';
 
 let detalhesImovel = [];
 
 const wspg = async() => {
     const browser = await puppeteer.launch({
-        headless: false, // Só fica ativo no ambiente de de homologação
+        // headless: false, // Só fica ativo no ambiente de de homologação:
     });
     const page = await browser.newPage();
 
