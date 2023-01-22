@@ -2,7 +2,7 @@
 
 const puppeteer = require("puppeteer");
 
-const urlalvo = "https://www.olx.com.br/imoveis/venda/estado-rj/norte-do-estado-do-rio/norte-do-estado/campos-dos-goytacazes";
+const urlalvo = "https://www.olx.com.br/imoveis/venda/estado-rj/norte-do-estado-do-rio/norte-do-estado/campos-dos-goytacazes?pe=30000&ps=10000&ret=1020&ret=1040&sf=1";
 
 // Função assincrona autoexecutavél
 async function linkimoveis(lkpesquisa){ 
@@ -14,8 +14,8 @@ async function linkimoveis(lkpesquisa){
     const page = await browser.newPage(); //Abre o navegador
     await page.goto(lkpesquisa, {timeout: 0}); // Vai para página desejada
 
-    const options = await page.$$eval(".sc-1fcmfeb-1.kntIvV > li > div >a", (opts) =>
-        opts.map((option) => option.attributes[6].nodeValue)
+    const options = await page.$$eval("#ad-list> li >a", (opts) =>
+        opts.map((option) => option.attributes[1].nodeValue)
     );
 
     await browser.close();
